@@ -39,4 +39,8 @@ public class BaseTest {
     public HomePage getHomePage() {
         return new HomePage(getDriver());
     }
+
+    public SentPage getSentPage() {
+        return new SentPage(getDriver());
+    }
 }

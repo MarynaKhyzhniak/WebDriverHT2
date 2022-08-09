@@ -6,12 +6,13 @@ public class EmailTests extends BaseTest {
     @Test
     public void existingUserIsLoggedIn() {
         getSignInPage().logInWithExistingAccount();
-        getHomePage().waitUrlToLoad("https://myaccount.google.com/");
-        getHomePage().isTextPresent("Harry Potter!");
+        getHomePage().waitUrlToLoad("https://mail.google.com/");
     }
 
     @Test
     public void emailIsSuccessfullySent() {
-
+        existingUserIsLoggedIn();
+        getHomePage().createAndSendEmail();
+        getHomePage().isTextPresent("Сообщение отправлено.");
     }
 }

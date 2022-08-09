@@ -39,8 +39,13 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public void waitElementToBeClickable(long timeToWait, WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, timeToWait);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
     public void waitUrlToLoad(String url) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.urlToBe(url));
+        wait.until(ExpectedConditions.urlContains(url));
     }
 }
